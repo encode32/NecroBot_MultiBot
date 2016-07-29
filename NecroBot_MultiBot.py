@@ -8,6 +8,8 @@ exit = False
 timeout = 60 * 30 # 60 * minutos
 waiting = 60 * 1 # 60 * minutos
 
+sameconsole = False # All bots on same console
+
 path = "D:\PokemonGO\GrindingConfig"
 exe = "\NecroBot.exe"
 folders = ["Legit",
@@ -26,7 +28,10 @@ def openProcs():
 	global start
 	start = time.time()
 	for folder in folders:
-		subp = subprocess.Popen([path+exe, folder], cwd=path)
+		if sameconsole:
+			subp = subprocess.Popen([path+exe, folder], cwd=path)
+		else:
+			subp = subprocess.Popen([path+exe, folder], cwd=path, creationflags = subprocess.CREATE_NEW_CONSOLE)
 		p = psutil.Process(subp.pid)
 		procs.append(p)
 			
