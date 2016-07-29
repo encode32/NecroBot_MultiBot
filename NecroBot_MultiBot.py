@@ -6,6 +6,7 @@ start = 0
 exit = False
 
 timeout = 60 * 30 # 60 * minutos
+waiting = 60 * 1 # 60 * minutos
 
 path = "D:\PokemonGO\GrindingConfig"
 exe = "\NecroBot.exe"
@@ -38,6 +39,6 @@ while not exit:
 		#Arriba comentado = reinicia los procesos cuando el timer acabe
 		if not exit:
 			print "[Bot Manager] Un minuto para relogear los Bots."
-			time.sleep(60)#Esperamos un minuto para relogear
+			time.sleep(waiting)#Esperamos un minuto para relogear
 			openProcs()
 	time.sleep(5)
